@@ -107,7 +107,7 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
  |--------------------------------------------------------------------------
  */
 gulp.task('styles', function() {
-  return gulp.src('app/styles/styles.scss')
+  return gulp.src(['app/styles/styles.scss', 'bower_components/Materialize/dist/css/materialize.min.css'])
     .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(sass())
