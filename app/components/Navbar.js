@@ -17,7 +17,7 @@ class Navbar extends React.Component {
     return(
       <nav>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">FD-INP Data Explorer</a>
+          <a href="#" className="brand-logo"> &nbsp; FD-INP Data Explorer</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li><a id="modalTrigger" href="#modalHelp" onClick={this.displayModal}>Help</a></li>
           </ul>

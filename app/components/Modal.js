@@ -20,7 +20,7 @@ class Modal extends React.Component {
 
           <h5>Maps</h5>
           <p>
-            In the top part of the app we can see the clustered data. To see a specific cluster, you must choose the year (currently only 2009 is available), month and cluster in the appropriate dropdown lists. <br />
+            In the top part of the app we can see the clustered data. To see a specific cluster, you must choose the year, month and cluster in the appropriate dropdown lists. <br />
             For Each month, there is one recored in the clusters list called <strong>Full</strong>. Choosing this record will display all the clusters for the selected month.<br />
             For convenience, the full maps are plotted without the biggest cluster which coveres most of the area. This cluster can be explored when inspecting individual clusters.
             The map that is used was taken from the <a href="http://isccp.giss.nasa.gov/docs/mapgridinfo.html" target="_blank">ISCCP</a> website<br />

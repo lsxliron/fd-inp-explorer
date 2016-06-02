@@ -12,7 +12,7 @@ class Footer extends React.Component{
        <footer className="page-footer">
           <div className="footer-copyright">
             <div className="container">
-            Created by <a href="http://www.gagn.io" target="_blank">Liron Shimrony </a>
+            &copy; Created by <a href="http://www.gagn.io" target="_blank">Liron Shimrony </a>
             
             </div>
           </div>

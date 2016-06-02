@@ -314,8 +314,9 @@ var DataPicker = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.state.year);
       var clusters = [];
-      for (var i = 1; i < 43; i++) {
+      for (var i = 1; i <= this.state.numOfClusters[this.state.year]; i++) {
         clusters.push(i);
       }var clusterJSX = clusters.map(function (c) {
         return _react2.default.createElement(
@@ -376,6 +377,33 @@ var DataPicker = function (_React$Component) {
         _react2.default.createElement(
           'ul',
           { id: 'yearDropdown', className: 'dropdown-content' },
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { className: 'yearClass', href: '#!', onClick: this.handleClick },
+              '2006'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { className: 'yearClass', href: '#!', onClick: this.handleClick },
+              '2007'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { className: 'yearClass', href: '#!', onClick: this.handleClick },
+              '2008'
+            )
+          ),
           _react2.default.createElement(
             'li',
             null,
@@ -456,7 +484,7 @@ var Footer = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { className: "container" },
-            "Created by ",
+            "© Created by ",
             _react2.default.createElement(
               "a",
               { href: "http://www.gagn.io", target: "_blank" },
@@ -622,7 +650,7 @@ var Modal = function (_React$Component) {
           _react2.default.createElement(
             "p",
             null,
-            "In the top part of the app we can see the clustered data. To see a specific cluster, you must choose the year (currently only 2009 is available), month and cluster in the appropriate dropdown lists. ",
+            "In the top part of the app we can see the clustered data. To see a specific cluster, you must choose the year, month and cluster in the appropriate dropdown lists. ",
             _react2.default.createElement("br", null),
             "For Each month, there is one recored in the clusters list called ",
             _react2.default.createElement(
@@ -771,7 +799,7 @@ var Navbar = function (_React$Component) {
           _react2.default.createElement(
             'a',
             { href: '#', className: 'brand-logo' },
-            'FD-INP Data Explorer'
+            '   FD-INP Data Explorer'
           ),
           _react2.default.createElement(
             'ul',
@@ -975,6 +1003,33 @@ var VariablePicker = function (_React$Component) {
             _react2.default.createElement(
               'a',
               { href: '#!', className: 'varYearClass', onClick: this.handleClick },
+              '2006'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '#!', className: 'varYearClass', onClick: this.handleClick },
+              '2007'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '#!', className: 'varYearClass', onClick: this.handleClick },
+              '2008'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '#!', className: 'varYearClass', onClick: this.handleClick },
               '2009'
             )
           )
@@ -1064,6 +1119,7 @@ var DataPickerStore = function () {
     this.month = "Month";
     this.cluster = "Cluster";
     this.fullSelection = false;
+    this.numOfClusters = { "2009": 42, "2008": 47, "2007": 50, "2006": 37, "Year": 0 };
   }
 
   _createClass(DataPickerStore, [{
@@ -1159,14 +1215,15 @@ var ImageViewerStore = function () {
       var varData = _VariablePickerStore2.default.getState();
 
       if (varData.fullSelection) {
-        if (varData.varCategory == "Yearly") this.varUrl = 'static/2009/vars/' + varData.selectedVar + '.png';else {
+        if (varData.varCategory == "Yearly") this.varUrl = 'static/' + varData.varYear + '/vars/' + varData.selectedVar + '.png';else {
           var monthName = varData.varMonth;
           var monthNumber = months[monthName];
           var year = varData.varYear;
-          this.varUrl = 'static/' + year + '/' + monthNumber + '_' + monthName + '/vars/' + monthName + '_' + varData.selectedVar + '.png';
+
+          // TODO: Should be removed after changing filenames
+          if (year == 2009) this.varUrl = 'static/' + year + '/' + monthNumber + '_' + monthName + '/vars/' + monthName + '_' + varData.selectedVar + '.png';else this.varUrl = 'static/' + year + '/' + monthNumber + '_' + monthName + '/vars/' + varData.selectedVar + '.png';
         }
       }
-      console.log(this.varUrl);
     }
   }]);
 

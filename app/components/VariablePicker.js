@@ -99,6 +99,9 @@ class VariablePicker extends React.Component {
           </ul>
           
           <ul id="varsYears" className="dropdown-content">
+            <li><a href="#!" className="varYearClass" onClick={this.handleClick}>2006</a></li>
+            <li><a href="#!" className="varYearClass" onClick={this.handleClick}>2007</a></li>
+            <li><a href="#!" className="varYearClass" onClick={this.handleClick}>2008</a></li>
             <li><a href="#!" className="varYearClass" onClick={this.handleClick}>2009</a></li>
           </ul>
 

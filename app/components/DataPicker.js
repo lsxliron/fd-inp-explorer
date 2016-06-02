@@ -54,8 +54,9 @@ class DataPicker extends React.Component {
   }
 
   render(){
+    console.log(this.state.year)
     var clusters = [];
-    for (var i=1; i<43; i++)
+    for (var i=1; i<=this.state.numOfClusters[this.state.year]; i++)
       clusters.push(i);
 
     var clusterJSX = clusters.map(c=>{
@@ -84,6 +85,9 @@ class DataPicker extends React.Component {
         </div>
 
         <ul id="yearDropdown" className='dropdown-content'>
+          <li><a className="yearClass" href="#!" onClick={this.handleClick}>2006</a></li>
+          <li><a className="yearClass" href="#!" onClick={this.handleClick}>2007</a></li>
+          <li><a className="yearClass" href="#!" onClick={this.handleClick}>2008</a></li>
           <li><a className="yearClass" href="#!" onClick={this.handleClick}>2009</a></li>
         </ul>
 

@@ -42,17 +42,21 @@ class ImageViewerStore {
 
     if (varData.fullSelection){
       if (varData.varCategory == "Yearly")
-          this.varUrl = `static/2009/vars/${varData.selectedVar}.png`;
+          this.varUrl = `static/${varData.varYear}/vars/${varData.selectedVar}.png`;
       
       else{
           let monthName = varData.varMonth;
           let monthNumber = months[monthName];
           let year = varData.varYear
-          this.varUrl = `static/${year}/${monthNumber}_${monthName}/vars/${monthName}_${varData.selectedVar}.png`;
+
+          // TODO: Should be removed after changing filenames
+          if (year == 2009)
+            this.varUrl = `static/${year}/${monthNumber}_${monthName}/vars/${monthName}_${varData.selectedVar}.png`;
+
+          else
+            this.varUrl = `static/${year}/${monthNumber}_${monthName}/vars/${varData.selectedVar}.png`;
         }
     }
-    console.log(this.varUrl)
-
   }
 }
 

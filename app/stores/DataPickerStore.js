@@ -9,6 +9,8 @@ class DataPickerStore{
     this.month = "Month";
     this.cluster = "Cluster";
     this.fullSelection = false;
+    this.numOfClusters = {"2009": 42, "2008": 47, "2007": 50, "2006": 37, "Year": 0}
+
   }
 
   onUpdateText(data){
