@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom'
 import DataPickerActions from '../actions/DataPickerActions';
 import DataPickerStore from '../stores/DataPickerStore';
 import ImageViewerActions from '../actions/ImageViewerActions';
-import CanvasStore from '../stores/CanvasStore';
-import CanvasActions from '../actions/CanvasActions';
-
 class DataPicker extends React.Component {
   constructor(props){
     super(props);
     this.state = DataPickerStore.getState();
     this.onChange = this.onChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.manipulateCanvas = this.manipulateCanvas.bind(this);
   }
 
   onChange(){
@@ -61,26 +57,6 @@ class DataPicker extends React.Component {
     
   }
 
-  manipulateCanvas(){
-    var canvasData = CanvasStore.getState();
-    var canvas = document.getElementById("mapCanvas");
-
-    if (canvasData.transparent){
-      CanvasActions.resetCanvas(canvas);
-      CanvasActions.setTransparent(false)
-    }
-    else{
-      CanvasActions.setPixels(canvas).then((imgData)=>{
-        CanvasActions.updateCanvas(imgData, canvas)
-      })
-      CanvasActions.setTransparent(true)
-
-    }
-
-    // CanvasActions.setTransparent(!canvasData.tranparent)
-
-  }
-
   render(){
     console.log(this.state.year)
     var clusters = [];
@@ -102,13 +78,10 @@ class DataPicker extends React.Component {
     
     return(
       <div className="row">
-        <div className="col s1">
-          <a href="#!" className="btn-floating waves-effect waves-dark red" onClick={this.manipulateCanvas} style={{marginTop:65+'%'}}><i className="material-icons">album</i></a>
-        </div>
         <div className="col s3">
           <a className="dropdown-button btn spacy-dropdown" data-beloworigin="true" data-alignment="right" href="#" data-activates="categoryDropdown">{this.state.category}</a>
         </div>
-        <div className="col s2">
+        <div className="col s3">
           <a className="dropdown-button btn spacy-dropdown" data-beloworigin="true" data-alignment="right" href="#" data-activates="yearDropdown">{this.state.year}</a>
         </div>
         <div className="col s3">

@@ -4,10 +4,10 @@ import VariablePickerActions from '../actions/VariablePickerActions'
 class VariablePickerStore{
   constructor(){
     this.bindActions(VariablePickerActions);
-    this.selectedVar = "Name"
-    this.varCategory = "Category"
-    this.varYear = "Year"
-    this.varMonth = "Month"
+    this.selectedVar = "ps____";//"Name"
+    this.varCategory = "Monthly";//"Category"
+    this.varYear = "2006";//"Year"
+    this.varMonth = "January"//"Month"
     this.fullSelection = false;
   }
 

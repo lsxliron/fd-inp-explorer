@@ -1,1 +1,26 @@
-.spacy-dropdown{margin-left:70px;margin-right:70px;margin-top:40px}.mapImage,hr{width:100%}.varImage{width:60%}.imgDiv{text-align:center}
+.spacy-dropdown {
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 40px; }
+
+hr {
+  width: 100%; }
+
+.mapImage {
+  width: 100%; }
+
+.varImage {
+  width: 60%; }
+
+.imgDiv {
+  text-align: center; }
+
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 2%;
+  display: block; }
+
+/*# sourceMappingURL=styles.css.map */
